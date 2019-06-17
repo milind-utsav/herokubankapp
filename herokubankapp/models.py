@@ -27,5 +27,5 @@ class BankBranches(models.Model):
     city = models.CharField("city", max_length=50)
     district = models.CharField("district", max_length=50)
     state = models.CharField("state", max_length=26)
-    name = models.CharField("bank_name", max_length=49)
+    bank_name = models.CharField("bank_name", max_length=49)
     
