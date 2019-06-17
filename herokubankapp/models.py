@@ -19,7 +19,7 @@ class Branches(models.Model):
 class BankBranches(models.Model):
     class Meta:
         managed = False
-        db_table = "bank_branches"
+        db_table = "herokubankapp_bank_branches"
     ifsc = models.TextField("ifsc", max_length=11)
     bank_id = models.BigIntegerField("bank_id")
     branch = models.CharField("branch", max_length=74)
