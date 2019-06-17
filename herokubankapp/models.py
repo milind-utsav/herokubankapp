@@ -21,7 +21,7 @@ class BankBranches(models.Model):
         managed = False
         db_table = "herokubankapp_bank_branches"
     ifsc = models.TextField("ifsc", max_length=11)
-    bank_id = models.BigIntegerField("bank_id")
+    id = models.BigIntegerField("id")
     branch = models.CharField("branch", max_length=74)
     address = models.TextField("address", max_length=195)
     city = models.CharField("city", max_length=50)
