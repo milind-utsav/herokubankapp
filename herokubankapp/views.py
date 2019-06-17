@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 
-from .models import Bank_Branches
+from .models import BankBranches
 
 # Create your views here.
 def bankdetails(request, ifsc):
-    details = Bank_Branches.objects.filter(ifsc=ifsc.upper())
+    details = BankBranches.objects.filter(ifsc=ifsc.upper())
     print(details)
     for det in details:
         print(det)
