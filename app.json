@@ -1,0 +1,22 @@
+{
+    "name": "Heroku Bank App: IFSC finder",
+    "description": "An API service to get bank details given an IFSC code",
+    "image": "heroku/python",
+    "repository": "https://github.com/milind-utsav/herokubankapp",
+    "keywords": ["python", "django" ],
+    "addons": [ "heroku-postgresql" ],
+    "env": {
+	"SECRET_KEY": {
+	    "description": "fdwvzxcet487!u$yn94*y!6y3pxf)g!v_jk!i)=qlu6*hxmtmu",
+	    "generator": "secret"
+	}
+    },
+    "environments": {
+	"test": {
+	    "scripts": {
+		"test-setup": "python manage.py collectstatic --noinput",
+		"test": "python manage.py test"
+	    }
+	}
+    }
+}

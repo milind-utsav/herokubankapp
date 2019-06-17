@@ -1,0 +1,7 @@
+from django.http import HttpResponse
+
+from .models import BankBranches
+
+# Create your views here.
+def bankdetails(request, ifsc):
+    
