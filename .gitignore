@@ -1,0 +1,9 @@
+# ignore all files ending with ~
+# emacs autosave buffers
+*~
+# emacs crash files
+*.*#
+# python compiled files
+*.pyc
+# log files
+*.log
