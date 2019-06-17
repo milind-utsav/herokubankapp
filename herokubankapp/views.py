@@ -9,4 +9,3 @@ def bankdetails(request, ifsc):
     for det in details:
         print(det)
     return HttpResponse("success 200 ok")
-    
