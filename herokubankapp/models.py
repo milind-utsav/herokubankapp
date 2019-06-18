@@ -3,7 +3,7 @@ from django.db import models
 
 class Banks(models.Model):
     name = models.CharField("name", max_length=49)
-    id = models.BigIntegerField("id")
+    id = models.BigIntegerField("id", primary_key=True)
 
 
 class Branches(models.Model):
@@ -21,7 +21,7 @@ class BankBranches(models.Model):
         managed = False
         db_table = "herokubankapp_bank_branches"
     ifsc = models.TextField("ifsc", max_length=11)
-    id = models.BigIntegerField("id")
+    id = models.BigIntegerField("id", primary_key=True)
     branch = models.CharField("branch", max_length=74)
     address = models.TextField("address", max_length=195)
     city = models.CharField("city", max_length=50)

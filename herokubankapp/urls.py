@@ -19,6 +19,6 @@ from django.urls import path
 import herokubankapp.views
 
 urlpatterns = [
-    path('bank/<str:ifsc>/', herokubankapp.views.bankdetails, name="bankdetails"),
+    path('bank/', herokubankapp.views.bankdetails, name="bankdetails"),
     path('admin/', admin.site.urls),
 ]
