@@ -30,20 +30,27 @@ def bankdetails(request):
     elif "name" in request.GET and "city" in request.GET:
         name = request.GET.get("name", "").strip()
         city = request.GET.get("city", "").strip()
-        # find banks in the city with given name
-        banks = BankBranches.objects.filter(city=city.upper(),
-                                            bank_name=name.upper())
-        bank_list = []
-        # convert banks to json and return data
-        for bank in banks:
-            bank_list.append({"ifsc": bank.ifsc,
-                              "branch": bank.branch,
-                              "address": bank.address,
-                              "city": bank.city,
-                              "state": bank.state,
-                              "name": bank.bank_name})
-        if len(bank_list) > 0:
-            result.setSuccessStatus().setData(bank_list)
+        if len(name) <= 0:
+            result.setFailureStatus(reason="bank name empty")
+        elif len(city) <= 0:
+            result.setFailureStatus(reason="city empty")
         else:
-            result.setFailureStatus(reason="no matching banks found")
+            # find banks in the city with given name
+            banks = BankBranches.objects.filter(city=city.upper(),
+                                                bank_name=name.upper())
+            bank_list = []
+            # convert banks to json and return data
+            for bank in banks:
+                bank_list.append({"ifsc": bank.ifsc,
+                                  "branch": bank.branch,
+                                  "address": bank.address,
+                                  "city": bank.city,
+                                  "state": bank.state,
+                                  "name": bank.bank_name})
+            if len(bank_list) > 0:
+                result.setSuccessStatus().setData(bank_list)
+            else:
+                result.setFailureStatus(reason="no matching banks found")
+    else:
+        result.setFailureStatus(reason="insufficient parameters. pass either ifsc or bank name and city")
     return result.constructResponse()
